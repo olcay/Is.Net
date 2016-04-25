@@ -51,7 +51,7 @@ namespace Is.Net.UnitTest
         public void IsName()
         {
             Assert.IsTrue(helper.IsName("Name Surname"));
-            Assert.IsTrue(helper.IsName("abcdefghiijkl noprsstuuvyz'abcdefghijklm"));
+            Assert.IsTrue(helper.IsName("abcdefghıijkl noprsstuuvyz'abcdefghijklm"));
             Assert.IsTrue(helper.IsName("a"));
             Assert.IsTrue(helper.IsName(" "));
             Assert.IsFalse(helper.IsName("1"));
@@ -70,6 +70,16 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        public void IsSocialSecurityNumber()
+        {
+            Assert.IsTrue(helper.IsSocialSecurityNumber("333-22-4444"));
+            Assert.IsFalse(helper.IsSocialSecurityNumber("11122233344"));
+            Assert.IsFalse(helper.IsSocialSecurityNumber(""));
+            Assert.IsFalse(helper.IsSocialSecurityNumber("a"));
+            Assert.IsFalse(helper.IsSocialSecurityNumber(null));
+        }
+
+        [TestMethod]
         public void IsConfirmation()
         {
             Assert.IsTrue(helper.IsConfirmation("yes"));
@@ -77,6 +87,32 @@ namespace Is.Net.UnitTest
             Assert.IsTrue(helper.IsConfirmation("True"));
             Assert.IsFalse(helper.IsConfirmation("no"));
             Assert.IsFalse(helper.IsConfirmation("a"));
+        }
+
+        [TestMethod]
+        public void IsIP()
+        {
+            Assert.IsTrue(helper.IsIP("192.168.0.1"));
+            Assert.IsTrue(helper.IsIP("0.0.0.0"));
+            Assert.IsTrue(helper.IsIP("::1"));
+            Assert.IsFalse(helper.IsIP("a"));
+            Assert.IsFalse(helper.IsIP(null));
+        }
+
+        [TestMethod]
+        public void IsCreditCard()
+        {
+            Assert.IsTrue(helper.IsCreditCard("378282246310005"));
+            Assert.IsFalse(helper.IsCreditCard("378282246310000"));
+            Assert.IsFalse(helper.IsCreditCard("111"));
+            Assert.IsFalse(helper.IsCreditCard("a"));
+        }
+
+        [TestMethod]
+        public void IsAlphaNumeric()
+        {
+            Assert.IsTrue(helper.IsAlphaNumeric("harfler432SaY"));
+            Assert.IsFalse(helper.IsAlphaNumeric("Qwert&!"));
         }
     }
 }

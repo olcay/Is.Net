@@ -91,6 +91,26 @@ namespace Is.Net
         {
             return TextHelper.Instance.Value.IsConfirmation(value);
         }
+
+        public static bool SocialSecurityNumber(string value)
+        {
+            return TextHelper.Instance.Value.IsSocialSecurityNumber(value);
+        }
+
+        public static bool IP(string value)
+        {
+            return TextHelper.Instance.Value.IsIP(value);
+        }
+
+        public static bool CreditCard(string value)
+        {
+            return TextHelper.Instance.Value.IsCreditCard(value);
+        }
+
+        public static bool AlphaNumeric(string value)
+        {
+            return TextHelper.Instance.Value.IsAlphaNumeric(value);
+        }
         #endregion
     }
 }

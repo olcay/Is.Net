@@ -11,14 +11,10 @@ namespace Is.Net.Helpers
         #region PrivateMethods
         private bool RegexMatch(string value, string pattern)
         {
-            if (string.IsNullOrEmpty(value))
-            {
-                //TODO we can throw exception here
-                return false;
-            }
-
             Regex reg = new Regex(pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
-            return reg.IsMatch(value);
+
+            //TODO do we need null check? we can throw exception here.
+            return !string.IsNullOrEmpty(value) && reg.IsMatch(value);
         }
         #endregion
 
@@ -37,6 +33,11 @@ namespace Is.Net.Helpers
             return RegexMatch(value, @"^(ht|f)tp(s?)\:\/\/[0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*(:(0-9)*)*(\/?)([a-zA-Z0-9\-\.\?\,\'\/\\\+&amp;%\$#_]*)?$");
         }
 
+        public bool IsSocialSecurityNumber(string value)
+        {
+            return RegexMatch(value, @"^\d{3}-\d{2}-\d{4}$");
+        }
+        
         public bool IsEmail(string value)
         {
             return RegexMatch(value, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
@@ -45,7 +46,7 @@ namespace Is.Net.Helpers
         public bool IsName(string value, int limit = 40)
         {
             //TODO do we need turkish characters or this method
-            return RegexMatch(value, @"^[a-zA-Z''-'\s]{1," + limit + "}$");
+            return RegexMatch(value, @"^[a-zA-Z''-'\sçÇöÖşŞıİğĞüÜ]{1," + limit + "}$");
         }
 
         public bool IsTurkishIdentity(string value)
@@ -86,6 +87,34 @@ namespace Is.Net.Helpers
             };
 
             return words.Contains(value.ToLowerInvariant());
+        }
+
+        public bool IsIP(string value)
+        {
+            System.Net.IPAddress ip = null;
+
+            return !string.IsNullOrEmpty(value) && System.Net.IPAddress.TryParse(value, out ip);
+        }
+
+        public bool IsCreditCard(string value)
+        {
+            int[] DELTAS = new int[] { 0, 1, 2, 3, 4, -4, -3, -2, -1, 0 };
+            int checksum = 0;
+            char[] chars = value.ToCharArray();
+            for (int i = chars.Length - 1; i > -1; i--)
+            {
+                int j = ((int)chars[i]) - 48;
+                checksum += j;
+                if (((i - chars.Length) % 2) == 0)
+                    checksum += DELTAS[j];
+            }
+
+            return ((checksum % 10) == 0);
+        }
+
+        public bool IsAlphaNumeric(string value)
+        {
+            return RegexMatch(value, @"^[a-zA-Z0-9çÇöÖşŞıİğĞüÜ]*$");
         }
     }
 }
