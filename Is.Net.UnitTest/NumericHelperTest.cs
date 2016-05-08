@@ -15,6 +15,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("NumericHelper")]
         public void IsIntegerWhenDecimal()
         {
             Assert.IsTrue(helper.IsInteger(5.0M));
@@ -24,6 +25,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("NumericHelper")]
         public void IsIntegerWhenString()
         {
             Assert.IsTrue(helper.IsInteger("1"));
@@ -34,6 +36,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("NumericHelper")]
         public void IsEven()
         {
             Assert.IsTrue(helper.IsEven(2));
@@ -43,6 +46,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("NumericHelper")]
         public void IsOdd()
         {
             Assert.IsTrue(helper.IsOdd(3));
@@ -52,6 +56,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("NumericHelper")]
         public void IsAbove()
         {
             Assert.IsTrue(helper.IsAbove(1, 0));
@@ -60,6 +65,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("NumericHelper")]
         public void IsUnder()
         {
             Assert.IsTrue(helper.IsUnder(-1, 0));
@@ -68,6 +74,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("NumericHelper")]
         public void IsBetween()
         {
             Assert.IsTrue(helper.IsBetween(1, 0, 2));
@@ -77,6 +84,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("NumericHelper")]
         public void IsFinite()
         {
             Assert.IsTrue(helper.IsFinite(42));

@@ -15,6 +15,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("TextHelper")]
         public void IsSpace()
         {
             Assert.IsTrue(helper.IsSpace(" "));
@@ -25,6 +26,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("TextHelper")]
         public void IsURL()
         {
             Assert.IsTrue(helper.IsURL(@"http://www.buraktungut.com"));
@@ -38,6 +40,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("TextHelper")]
         public void IsEmail()
         {
             Assert.IsTrue(helper.IsEmail("emailaddress@domain.com"));
@@ -48,6 +51,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("TextHelper")]
         public void IsName()
         {
             Assert.IsTrue(helper.IsName("Name Surname"));
@@ -60,6 +64,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("TextHelper")]
         public void IsTurkishIdentity()
         {
             Assert.IsTrue(helper.IsTurkishIdentity("92279202834"));
@@ -70,6 +75,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("TextHelper")]
         public void IsSocialSecurityNumber()
         {
             Assert.IsTrue(helper.IsSocialSecurityNumber("333-22-4444"));
@@ -80,6 +86,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("TextHelper")]
         public void IsConfirmation()
         {
             Assert.IsTrue(helper.IsConfirmation("yes"));
@@ -90,6 +97,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("TextHelper")]
         public void IsIP()
         {
             Assert.IsTrue(helper.IsIP("192.168.0.1"));
@@ -100,6 +108,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("TextHelper")]
         public void IsCreditCard()
         {
             Assert.IsTrue(helper.IsCreditCard("378282246310005"));
@@ -109,6 +118,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("TextHelper")]
         public void IsAlphaNumeric()
         {
             Assert.IsTrue(helper.IsAlphaNumeric("harfler432SaY"));
@@ -116,6 +126,7 @@ namespace Is.Net.UnitTest
         }
 
         [TestMethod]
+        [TestCategory("TextHelper")]
         public void IsPalindrome()
         {
             Assert.IsFalse(helper.IsPalindrome("csharp"));
