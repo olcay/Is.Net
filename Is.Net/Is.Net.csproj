@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\HelperContainer.cs" />
     <Compile Include="Helpers\NumericHelper.cs" />
     <Compile Include="Helpers\TextHelper.cs" />
     <Compile Include="Is.cs" />

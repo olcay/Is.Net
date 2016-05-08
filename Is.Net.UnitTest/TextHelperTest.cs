@@ -114,5 +114,13 @@ namespace Is.Net.UnitTest
             Assert.IsTrue(helper.IsAlphaNumeric("harfler432SaY"));
             Assert.IsFalse(helper.IsAlphaNumeric("Qwert&!"));
         }
+
+        [TestMethod]
+        public void IsPalindrome()
+        {
+            Assert.IsFalse(helper.IsPalindrome("csharp"));
+            Assert.IsTrue(helper.IsPalindrome("abcba"));
+            Assert.IsTrue(helper.IsPalindrome("abccba"));
+        }
     }
 }

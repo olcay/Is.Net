@@ -37,7 +37,7 @@ namespace Is.Net.Helpers
         {
             return RegexMatch(value, @"^\d{3}-\d{2}-\d{4}$");
         }
-        
+
         public bool IsEmail(string value)
         {
             return RegexMatch(value, @"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
@@ -115,6 +115,22 @@ namespace Is.Net.Helpers
         public bool IsAlphaNumeric(string value)
         {
             return RegexMatch(value, @"^[a-zA-Z0-9çÇöÖşŞıİğĞüÜ]*$");
+        }
+
+        public bool IsPalindrome(string value)
+        {
+            bool retVal = true;
+
+            for (int i = 0; i < value.Length / 2; i++)
+            {
+                if (value[i] != value[value.Length - i - 1])
+                {
+                    retVal = false;
+                    break;
+                }
+            }
+
+            return retVal;
         }
     }
 }

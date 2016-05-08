@@ -111,6 +111,11 @@ namespace Is.Net
         {
             return TextHelper.Instance.Value.IsAlphaNumeric(value);
         }
+
+        public static bool IsPalindrome(string value)
+        {
+            return TextHelper.Instance.Value.IsPalindrome(value);
+        }
         #endregion
     }
 }
