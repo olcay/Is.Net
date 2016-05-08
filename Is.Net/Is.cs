@@ -1,4 +1,5 @@
 ﻿using Is.Net.Helpers;
+using System.Collections.Generic;
 
 namespace Is.Net
 {
@@ -115,6 +116,13 @@ namespace Is.Net
         public static bool IsPalindrome(string value)
         {
             return TextHelper.Instance.Value.IsPalindrome(value);
+        }
+        #endregion
+
+        #region NumericEnumerable
+        public bool IsSorted(IEnumerable<decimal> values)
+        {
+            return NumericEnumerableHelper.Instance.Value.IsSorted(values);
         }
         #endregion
     }

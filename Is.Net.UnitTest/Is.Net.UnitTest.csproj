@@ -50,6 +50,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="NumericEnumerableHelperTest.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="NumericHelperTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TextHelperTest.cs" />
