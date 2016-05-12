@@ -26,7 +26,7 @@ Is.Integer(decimal value)
 -----------------------
 ####Checks if the given value type is integer.
 
-```csharp
+```cs
 Is.Integer(5.0M);
 => true
 
@@ -44,7 +44,7 @@ Is.Integer(string value)
 -----------------------
 ####Checks if the given value type is integer.
 
-```csharp
+```cs
 Is.Integer("1");
 => true
 
