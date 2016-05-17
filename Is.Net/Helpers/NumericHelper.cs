@@ -53,5 +53,29 @@ namespace Is.Net.Helpers
         {
             return !double.IsNaN(value) && !double.IsInfinity(value);
         }
+
+        public bool IsPrime(int value)
+        {
+            if ((value & 1) == 0)
+            {
+                if (value == 2)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            for (int i = 3; (i * i) <= value; i += 2)
+            {
+                if ((value % i) == 0)
+                {
+                    return false;
+                }
+            }
+            return value != 1;
+        }
     }
 }

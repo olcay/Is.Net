@@ -91,5 +91,16 @@ namespace Is.Net.UnitTest
             Assert.IsFalse(helper.IsFinite(double.PositiveInfinity));
             Assert.IsFalse(helper.IsFinite(double.NegativeInfinity));
         }
+
+        [TestMethod]
+        [TestCategory("NumericHelper")]
+        public void IsPrime()
+        {
+            Assert.IsTrue(helper.IsPrime(2));
+            Assert.IsTrue(helper.IsPrime(13));
+            Assert.IsTrue(helper.IsPrime(37));
+            Assert.IsFalse(helper.IsPrime(1));
+            Assert.IsFalse(helper.IsPrime(0));
+        }
     }
 }

@@ -55,6 +55,11 @@ namespace Is.Net
         {
             return NumericHelper.Instance.Value.IsFinite(value);
         }
+
+        public static bool Prime(int value)
+        {
+            return NumericHelper.Instance.Value.IsPrime(value);
+        }
         #endregion
 
         #region Text
@@ -120,7 +125,7 @@ namespace Is.Net
         #endregion
 
         #region NumericEnumerable
-        public bool IsSorted(IEnumerable<decimal> values)
+        public static bool IsSorted(IEnumerable<decimal> values)
         {
             return NumericEnumerableHelper.Instance.Value.IsSorted(values);
         }
